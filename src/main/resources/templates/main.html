@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Welcome!</title>
+    </head>
+    <body>
+
+        
+        
+        <h1>Welcome <span th:text="${user.username}">Name</span> !</h1>
+        
+        Here is the list of pigs taking part in the next race: 
+        
+        <ul>
+            <li th:each="pig : ${pigs}">
+                <span th:text="${pig.name}">pig name</span> - <span th:text="${pig.description}">description</span>
+            </li>
+        </ul>
+
+
+        Here's your current balance: <span th:text="${user.balance}">0</span>
+        
+        
+        <form action="#" th:action="@{/bet/} + ${user.Id}" method="POST">
+            <p><label for="username">Pig to bet:</label>: <input th:each="pig : ${pigs}" type="radio" id="name" name="name" th:value="${pig.name}" th:text="${pig.name}"/> </p> 
+            <!-- <p><label for="amount">Pig to bet</label>: <input type="text" name="name" id="name"/></p>-->
+            <p><label for="amount">Amount</label>: <input type="text" name="amount" id="amount"/></p>
+            <p><input type="submit" value="Place bet" /></p>
+        </form>
+        
+
+        
+        Bets placed so far:
+        
+        <ul>
+            <li th:each="bet : ${bets}">
+                <span th:text="${bet.bettor.username}">bettor name</span>  bet  <span th:text="${bet.amount}"> 0 </span> on <span th:text="${bet.target.name}"> pig name </span>
+            </li>
+        </ul>
+        
+        <div th:if="${not #lists.isEmpty(races)}">
+            <p th:each="race : ${races}">
+                Race was completed and the winner was <span th:text="${race.winner.name}">pig name</span> 
+            </p>
+        </div>
+       
+        <div th:if="${#lists.isEmpty(races)}">
+            <p>Race has not been run yet </p>
+            
+        </div>
+        
+        
+        <form action="#" th:action="@{/start}" method="GET">
+            <p><input type="submit" value="Logout" /></p>
+        </form>
+        
+
+    </body>
+</html>

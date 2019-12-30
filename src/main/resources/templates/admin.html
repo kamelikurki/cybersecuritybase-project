@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Control Panel</title>
+    </head>
+    <body>
+
+        <h1>Welcome to the control panel ! </h1>
+        
+        <form action="#" th:action="@{/resolveBets/}" method="POST">
+            <p><label for="username">Pig who won the race :</label>: <input th:each="pig : ${pigs}" type="radio" id="name" name="name" th:value="${pig.name}" th:text="${pig.name}"/> </p> 
+            <!-- <p><label for="amount">Pig to bet</label>: <input type="text" name="name" id="name"/></p>-->
+            <p><input type="submit" value="Declare winner" /></p>
+        </form>
+        
+        <form action="#" th:action="@{/start}" method="GET">
+            <p><input type="submit" value="Logout" /></p>
+        </form>
+    </body>
+</html>
