@@ -24,7 +24,6 @@
         
         <form action="#" th:action="@{/bet/} + ${user.Id}" method="POST">
             <p><label for="username">Pig to bet:</label>: <input th:each="pig : ${pigs}" type="radio" id="name" name="name" th:value="${pig.name}" th:text="${pig.name}"/> </p> 
-            <!-- <p><label for="amount">Pig to bet</label>: <input type="text" name="name" id="name"/></p>-->
             <p><label for="amount">Amount</label>: <input type="text" name="amount" id="amount"/></p>
             <p><input type="submit" value="Place bet" /></p>
         </form>
@@ -49,6 +48,17 @@
             <p>Race has not been run yet </p>
             
         </div>
+        
+        <p>Make your own notes here. Special characters enabled to make comparisons between pigs: </p>
+        
+        <form action="#" th:action="@{/makeNote/} + ${user.Id}" method="POST">
+            <p><label for="ccn"></label><input type="text" name="note" id="note"/></p>
+            <p><input type="submit" value="Make note" /></p>
+        </form>
+        
+        <p th:if="${note != null}" th:utext="${note}">
+
+        </p>
         
         
         <form action="#" th:action="@{/start}" method="GET">

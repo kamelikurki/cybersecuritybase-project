@@ -5,10 +5,6 @@
  */
 package sec.project.repository;
 
-/**
- *
- * @author pumpkin
- */
 import org.springframework.data.jpa.repository.JpaRepository;
 import sec.project.domain.Race;
 

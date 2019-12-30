@@ -5,17 +5,10 @@
  */
 package sec.project.domain;
 
-
 import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
-/**
- *
- * @author pumpkin
- */
+
 @Entity
 public class User extends AbstractPersistable<Long>{
     //@Id

@@ -5,17 +5,10 @@
  */
 package sec.project.domain;
 
-/**
- *
- * @author pumpkin
- */
 import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import javax.persistence.OneToOne;
-/**
- *
- * @author pumpkin
- */
+
 @Entity
 public class Bet extends AbstractPersistable<Long>{
     

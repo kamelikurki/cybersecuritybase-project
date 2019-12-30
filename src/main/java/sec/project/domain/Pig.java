@@ -5,18 +5,11 @@
  */
 package sec.project.domain;
 
-/**
- *
- * @author pumpkin
- */
 import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import sec.project.domain.User;
 
-/**
- *
- * @author pumpkin
- */
+
 @Entity
 public class Pig extends AbstractPersistable<Long>{
     

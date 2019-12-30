@@ -60,4 +60,15 @@ public class MainController {
         return "redirect:/main/" + String.valueOf(userId);
     }
     
+    @RequestMapping(value="/makeNote/{userId}", method = RequestMethod.POST)
+    public String makeNote(@PathVariable Long userId, @RequestParam String note, Model model){
+
+        model.addAttribute("note",note);
+        model.addAttribute("pigs",pigs.findAll());
+        model.addAttribute("bets", bets.findAll());
+        model.addAttribute("user", users.findOne(userId));
+        model.addAttribute("races", races.findAll());
+        return "main";
+    }
+    
 }
